@@ -1,25 +1,41 @@
 <h1>Burgers</h1>
 
 <h2>Burgers that are available!</h2>
+
+
+
 <ul>
   {{#each burgers}}
+    {{#unless devoured}}
     <li>
-      <p> Burger Name: {{burger_name}} </p>
-      <p> Burger ID: {{id}} </p>
-      <p> Burger Status: {{devoured}} </p>
-   </li>
+        <p>
+          {{this.burger_name}}
+
+            <button data-planid="{{this.id}}" class="eatBurger">Eat Burger!</button>
+        </p>
+      </li>
+    {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Burgers that are not available!</h2>
+
+<h2>Burgers that have been  devoured!</h2>
 
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{burger_name}}
+    <li>
+        <p>
+          {{this.burger_name}}
+
+        </p>
+      </li>
     {{/if}}
   {{/each}}
 </ul>
+
+
+
 
 <h2>Add a Burger</h2>
 <form class="create-form">
